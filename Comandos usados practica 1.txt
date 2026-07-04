@@ -1,0 +1,54 @@
+Comandos usados practica 1
+
+date
+
+su -
+
+hostnamectl set-hostname 20260831-S1
+hostnamectl set-hostname 20260831-S2
+
+ip a
+
+nano /etc/hosts
+
+ping 20260831-S2
+
+ping 20260831-S1
+
+systemctl status sshd (si no esta activo ejecutar: systemctl enable --now sshd)
+
+ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
+
+nano /etc/ssh/sshd_config
+
+ssh-copy-id root@20260831-S2
+
+dnf install rsync -y
+
+mkdir -p /datos/practica1
+
+cd /datos/practica1
+
+touch archivo{1..100}.txt
+
+rsync -avz /datos/practica1/ root@20260831-S2:/datos/practica1/
+
+mkdir -p /scripts
+
+nano /scripts/sync.sh
+
+chmod +x /scripts/sync.sh
+
+/scripts/sync.sh
+
+crontab -e
+
+* * * * * /scripts/sync.sh
+
+touch /datos/practica1/prueba_cron.txt
+
+ls /datos/practica1
+
+date
+
+hostname
